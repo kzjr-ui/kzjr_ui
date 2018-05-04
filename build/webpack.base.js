@@ -34,14 +34,14 @@ let config = {
 	}
 }
 
-// if (process.env.NODE_ENV !== 'production') {
-config.module.rules.push({
-	test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-	loader: 'url-loader?limit=8192'
-})
-config.module.rules[0].options.loaders = {
-	scss: 'vue-style-loader!css-loader!sass-loader'
+if (process.env.NODE_ENV === 'example') {
+	config.module.rules.push({
+		test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+		loader: 'url-loader?limit=8192'
+	})
+	config.module.rules[0].options.loaders = {
+		scss: 'vue-style-loader!css-loader!sass-loader'
+	}
 }
-// }
 
 module.exports = config

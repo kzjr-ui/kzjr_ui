@@ -4,32 +4,28 @@
 	"description": "kzjr-ui for Vue.js",
 	"main": "dist/kzjr-ui.min.js",
 	"scripts": {
-		"dev":
-			"cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.js --open --inline --hot",
-		"build:debug":
-			"cross-env NODE_ENV=debug webpack --config build/webpack.dist.js",
-		"build:prod":
-			"cross-env NODE_ENV=production webpack --config build/webpack.dist.js",
-		"build:examples":
-			"webpack --config build/webpack.examples.js",
-		"build:all":
-			"npm run build:debug && npm run build:prod && npm run build:examples"
+		"dev": "cross-env NODE_ENV=example webpack-dev-server --config ./build/webpack.dev.js --open --inline --hot",
+		"build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile style/gulpfile.js && cp-cli style/lib lib/kzjr-theme",
+		"build:debug": "cross-env webpack --config build/webpack.dist.js",
+		"build:examples": "cross-env NODE_ENV=example webpack --config build/webpack.examples.js",
+		"build:all": "npm run build:debug && npm run build:examples"
 	},
 	"author": "chenxuan",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kzjr-ui/kzjr-ui"
 	},
-	"keywords": ["kzjr-ui", "vuejs"],
-	"dependencies": {
-		"comutils": "^1.1.11"
-	},
+	"keywords": [
+		"kzjr-ui",
+		"vuejs"
+	],
 	"devDependencies": {
-		"babel-core": "^6.0.0",
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.0",
 		"babel-loader": "^7.1.2",
 		"babel-preset-env": "^1.6.1",
-		"babel-preset-stage-0": "^6.24.1",
 		"cross-env": "^3.0.0",
+		"cp-cli": "^1.0.2",
 		"css-loader": "^0.25.0",
 		"url-loader": "^0.6.2",
 		"file-loader": "^1.1.6",
@@ -37,6 +33,12 @@
 		"extract-text-webpack-plugin": "^3.0.0",
 		"node-sass": "^4.5.2",
 		"sass-loader": "^6.0.6",
+		"gh-pages": "^0.11.0",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^4.0.0",
+		"gulp-cssmin": "^0.1.7",
+		"gulp-postcss": "^6.1.1",
+		"gulp-sass": "^3.1.0",
 		"vue": "^2.5.13",
 		"vue-loader": "^11.3.3",
 		"vue-router": "^3.0.1",

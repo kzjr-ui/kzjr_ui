@@ -1,0 +1,3 @@
+{
+	"pagination": "./src/components/pagination/index.js"
+}

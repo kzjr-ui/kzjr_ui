@@ -1,7 +1,14 @@
 {
-  "presets": [
-    ["env"],
-    "stage-0"
-  ],
-  "comments": false
+	"presets": [
+		[
+            "env",       
+			{
+				"targets": {
+					"browsers": ["last 2 versions", "safari 7", "not ie <= 9"]
+				},
+				"modules": false,
+				"loose": true
+			}
+		]
+	]
 }

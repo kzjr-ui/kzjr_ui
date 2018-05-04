@@ -1,0 +1,57 @@
+.kzjr-pagination-component {
+	margin: 30px auto;
+	text-align: center;
+	.core {
+		display: inline-block;
+		a,
+		span {
+			margin-left: -1px;
+			padding: 7px 12px;
+			border: 1px solid #e1e4e8;
+			position: relative;
+			float: left;
+			font-size: 13px;
+			font-style: normal;
+			font-weight: 600;
+			white-space: nowrap;
+			vertical-align: middle;
+			cursor: pointer;
+			color: gray;
+			user-select: none;
+			background: #fff;
+			&:first-child {
+				margin-left: 0;
+				border-top-left-radius: 3px;
+				border-bottom-left-radius: 3px;
+			}
+			&:last-child {
+				border-top-right-radius: 3px;
+				border-bottom-right-radius: 3px;
+			}
+			&:hover,
+			&:focus {
+				border-color: #e8e4e1;
+				text-decoration: none;
+				background-color: #f3ece7;
+				z-index: 2;
+			}
+		}
+		.current {
+			&,
+			&:hover {
+				border-color: #e67e22;
+				color: #fff;
+				background-color: #e67e22;
+				z-index: 3;
+			}
+		}
+		.gap {
+			&,
+			&:hover {
+				color: #d1d5da;
+				cursor: default;
+				background-color: #fafbfc;
+			}
+		}
+	}
+}

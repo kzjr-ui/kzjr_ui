@@ -23,16 +23,16 @@ config.plugins = config.plugins.concat([
   })
 ])
 
-if (options.isProduction) {
-  config.plugins = config.plugins.concat([
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false,
-      compress: {
-        warnings: false,
-        drop_debugger: true,
-        drop_console: true
-      }
-    })
-  ])
-}
+// if (options.isProduction) {
+//   config.plugins = config.plugins.concat([
+//     new webpack.optimize.UglifyJsPlugin({
+//       sourceMap: false,
+//       compress: {
+//         warnings: false,
+//         drop_debugger: true,
+//         drop_console: true
+//       }
+//     })
+//   ])
+// }
 module.exports = config
