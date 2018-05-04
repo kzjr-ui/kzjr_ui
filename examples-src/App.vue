@@ -15,30 +15,32 @@
 		<div class="content">
 			<!-- 分页 -->
 			<h5 class="title">分页</h5>
-			<pagination @page-change="pageChange" :current="currrnt" :total="100" :limit="10"></pagination>
+			<pagination></pagination>
+			<!-- 提示框 -->
+			<div @click="openAlert">alert</div>
 		</div>
 	</div>
 </template>
 
 <script>
 
-	import pagination from "../src/components/pagination";
+	import pagination from "./base/pagination";
+	import messageBox from "../src/components/message-box";
+	
 	export default {
 		name: 'app',
 		data () {
 			return {
-				currrnt: 1
-			}
-		},
-		methods: {
-			pageChange (n) {
-				console.log(n)
-				this.currrnt = n
 			}
 		},
 		computed: {},
 		components: {
 			pagination
+		},
+		methods: {
+			openAlert() {
+				messageBox.alert('这是一段内容', '标题名称')
+			}
 		},
 		created () {
 
@@ -47,6 +49,7 @@
 </script>
 
 <style lang="scss">
+	@import '../style/src/message-box.scss';
 	#app {
 		padding-bottom: 100px;
 		.content {

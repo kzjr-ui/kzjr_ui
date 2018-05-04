@@ -1,4 +1,7 @@
-.kzjr-pagination-component {
+@import 'mixins/mixins';
+@import 'common/var';
+
+@include b(pagination-component) {
 	margin: 30px auto;
 	text-align: center;
 	.core {
@@ -18,7 +21,7 @@
 			cursor: pointer;
 			color: gray;
 			user-select: none;
-			background: #fff;
+			background: $--color-white;
 			&:first-child {
 				margin-left: 0;
 				border-top-left-radius: 3px;
@@ -39,9 +42,9 @@
 		.current {
 			&,
 			&:hover {
-				border-color: #e67e22;
-				color: #fff;
-				background-color: #e67e22;
+				border-color: $--color-active;
+                color: $--color-white;               
+				background-color: $--color-active;
 				z-index: 3;
 			}
 		}

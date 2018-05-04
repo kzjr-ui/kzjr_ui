@@ -1,54 +1,54 @@
 <template>
   <transition name="msgbox-fade">
     <div
-      class="el-message-box__wrapper"
+      class="kzjr-message-box__wrapper"
       tabindex="-1"
       v-show="visible"
       @click.self="handleWrapperClick"
       role="dialog"
       aria-modal="true"
       :aria-label="title || 'dialog'">
-      <div class="el-message-box" :class="[customClass, center && 'el-message-box--center']">
-        <div class="el-message-box__header" v-if="title !== null">
-          <div class="el-message-box__title">
+      <div class="kzjr-message-box" :class="[customClass, center && 'kzjr-message-box--center']">
+        <div class="kzjr-message-box__header" v-if="title !== null">
+          <div class="kzjr-message-box__title">
             <div
-              :class="['el-message-box__status', typeClass]"
+              :class="['kzjr-message-box__status', typeClass]"
               v-if="typeClass && center">
             </div>
             <span>{{ title }}</span>
           </div>
           <button
             type="button"
-            class="el-message-box__headerbtn"
+            class="kzjr-message-box__headerbtn"
             aria-label="Close"
             v-if="showClose"
             @click="handleAction('cancel')"
             @keydown.enter="handleAction('cancel')">
-            <i class="el-message-box__close el-icon-close"></i>
+            <i class="kzjr-message-box__close kzjr-icon-close"></i>
           </button>
         </div>
-        <div class="el-message-box__content">
+        <div class="kzjr-message-box__content">
           <div
-            :class="['el-message-box__status', typeClass]"
+            :class="['kzjr-message-box__status', typeClass]"
             v-if="typeClass && !center && message !== ''">
           </div>
-          <div class="el-message-box__message" v-if="message !== ''">
+          <div class="kzjr-message-box__message" v-if="message !== ''">
             <slot>
               <p v-if="!dangerouslyUseHTMLString">{{ message }}</p>
               <p v-else v-html="message"></p>
             </slot>
           </div>
-          <div class="el-message-box__input" v-show="showInput">
+          <div class="kzjr-message-box__input" v-show="showInput">
             <el-input
               v-model="inputValue"
               :type="inputType"
               @keydown.enter.native="handleInputEnter"
               :placeholder="inputPlaceholder"
               ref="input"></el-input>
-            <div class="el-message-box__errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
+            <div class="kzjr-message-box__errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
           </div>
         </div>
-        <div class="el-message-box__btns">
+        <div class="kzjr-message-box__btns">
           <el-button
             :loading="cancelButtonLoading"
             :class="[ cancelButtonClasses ]"
@@ -57,7 +57,7 @@
             size="small"
             @click.native="handleAction('cancel')"
             @keydown.enter="handleAction('cancel')">
-            {{ cancelButtonText || t('el.messagebox.cancel') }}
+            {{ cancelButtonText || '取消' }}
           </el-button>
           <el-button
             :loading="confirmButtonLoading"
@@ -68,7 +68,7 @@
             size="small"
             @click.native="handleAction('confirm')"
             @keydown.enter="handleAction('confirm')">
-            {{ confirmButtonText || t('el.messagebox.confirm') }}
+            {{ confirmButtonText || '确定'}}
           </el-button>
         </div>
       </div>
@@ -77,13 +77,12 @@
 </template>
 
 <script type="text/babel">
-  import Popup from 'element-ui/src/utils/popup';
-  import Locale from 'element-ui/src/mixins/locale';
-  import ElInput from 'element-ui/packages/input';
-  import ElButton from 'element-ui/packages/button';
-  import { addClass, removeClass } from 'element-ui/src/utils/dom';
-  import { t } from 'element-ui/src/locale';
-  import Dialog from 'element-ui/src/utils/aria-dialog';
+  import Popup from 'kzjr_ui/src/utils/popup';
+  import ElInput from 'kzjr_ui/src/components/input';
+  import ElButton from 'kzjr_ui/src/components/button';
+  import { addClass, removeClass } from 'kzjr_ui/src/utils/dom';
+  import Dialog from 'kzjr_ui/src/utils/aria-dialog';
+  console.log(ElInput.name)
   let messageBox;
   let typeMap = {
     success: 'success',
@@ -92,7 +91,7 @@
     error: 'error'
   };
   export default {
-    mixins: [Popup, Locale],
+    mixins: [Popup],
     props: {
       modal: {
         default: true
@@ -128,10 +127,10 @@
     },
     computed: {
       typeClass() {
-        return this.type && typeMap[this.type] ? `el-icon-${ typeMap[this.type] }` : '';
+        return this.type && typeMap[this.type] ? `kzjr-icon-${ typeMap[this.type] }` : '';
       },
       confirmButtonClasses() {
-        return `el-button--primary ${ this.confirmButtonClass }`;
+        return `kzjr-button--primary ${ this.confirmButtonClass }`;
       },
       cancelButtonClasses() {
         return `${ this.cancelButtonClass }`;
@@ -196,7 +195,7 @@
         if (this.$type === 'prompt') {
           const inputPattern = this.inputPattern;
           if (inputPattern && !inputPattern.test(this.inputValue || '')) {
-            this.editorErrorMessage = this.inputErrorMessage || t('el.messagebox.error');
+            this.editorErrorMessage = this.inputErrorMessage;
             addClass(this.getInputElement(), 'invalid');
             return false;
           }
@@ -204,7 +203,7 @@
           if (typeof inputValidator === 'function') {
             const validateResult = inputValidator(this.inputValue);
             if (validateResult === false) {
-              this.editorErrorMessage = this.inputErrorMessage || t('el.messagebox.error');
+              this.editorErrorMessage = this.inputErrorMessage;
               addClass(this.getInputElement(), 'invalid');
               return false;
             }
@@ -220,8 +219,8 @@
         return true;
       },
       getFistFocus() {
-        const $btns = this.$el.querySelector('.el-message-box__btns .el-button');
-        const $title = this.$el.querySelector('.el-message-box__btns .el-message-box__title');
+        const $btns = this.$el.querySelector('.kzjr-message-box__btns .kzjr-button');
+        const $title = this.$el.querySelector('.kzjr-message-box__btns .kzjr-message-box__title');
         return $btns && $btns[0] || $title;
       },
       getInputElement() {

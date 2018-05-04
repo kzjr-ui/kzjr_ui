@@ -1,10 +1,13 @@
 'use strict'
 const options = require('./options')
+const path = require('path')
+
 let config = {
 	resolve: {
 		modules: [options.paths.root, options.paths.resolve('node_modules')],
 		alias: {
-			vue$: 'vue/dist/vue.common.js'
+			vue$: 'vue/dist/vue.common.js',
+			kzjr_ui: path.resolve(__dirname, '../')
 		},
 		extensions: ['.js', '.json', '.vue']
 	},
