@@ -6,7 +6,7 @@
 <p align="center">
   <br>
   <br>
-  <img width="500" src="http://www.hollischuang.com/wp-content/uploads/2016/08/%E7%BB%84%E4%BB%B6%E5%8C%96.jpg">
+  <img width="500" src="./examples-src/dome.jpg">
   <br>
 </p>
                                             
