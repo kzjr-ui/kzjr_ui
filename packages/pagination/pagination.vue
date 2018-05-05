@@ -14,6 +14,7 @@
 
 <script>
   export default {
+    name: "KzjrPagination",
     props: {
       current: {
         type: [Number, String],

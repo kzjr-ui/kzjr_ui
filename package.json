@@ -1,13 +1,13 @@
 {
-	"name": "kzjr-ui",
-	"version": "0.0.1",
-	"description": "kzjr-ui for Vue.js",
-	"main": "dist/kzjr-ui.min.js",
+	"name": "kzjr_ui",
+	"version": "0.0.3",
+	"description": "kzjr_ui for Vue.js",
+	"main": "dist/kzjr_ui.min.js",
 	"scripts": {
 		"dev":
 			"cross-env NODE_ENV=example webpack-dev-server --config ./build/webpack.dev.js --open --inline --hot",
 		"build:theme":
-			"node build/bin/gen-cssfile && gulp build --gulpfile style/gulpfile.js && cp-cli style/lib lib/kzjr-theme",
+			"node build/bin/gen-cssfile && gulp build --gulpfile style/gulpfile.js && cp-cli style/lib lib/kzjr_theme",
 		"build:utils":
 			"cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
 		"clean": "rimraf lib && rimraf packages/*/lib",
@@ -24,9 +24,9 @@
 	"author": "chenxuan",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/kzjr-ui/kzjr-ui"
+		"url": "git+https://github.com/kzjr-ui/kzjr_ui"
 	},
-	"keywords": ["kzjr-ui", "vuejs"],
+	"keywords": ["kzjr_ui", "vuejs"],
 	"peerDependencies": {
 		"vue": "^2.5.2"
 	},
