@@ -4,41 +4,57 @@
 	"description": "kzjr-ui for Vue.js",
 	"main": "dist/kzjr-ui.min.js",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=example webpack-dev-server --config ./build/webpack.dev.js --open --inline --hot",
-		"build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile style/gulpfile.js && cp-cli style/lib lib/kzjr-theme",
-		"build:debug": "cross-env webpack --config build/webpack.dist.js",
-		"build:examples": "cross-env NODE_ENV=example webpack --config build/webpack.examples.js",
-		"build:all": "npm run build:debug && npm run build:examples"
+		"dev":
+			"cross-env NODE_ENV=example webpack-dev-server --config ./build/webpack.dev.js --open --inline --hot",
+		"build:theme":
+			"node build/bin/gen-cssfile && gulp build --gulpfile style/gulpfile.js && cp-cli style/lib lib/kzjr-theme",
+		"build:utils":
+			"cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
+		"clean": "rimraf lib && rimraf packages/*/lib",
+		"build:kzjr": "cross-env webpack --config build/webpack.dist.js",
+		"build:components":
+			"cross-env webpack --config build/webpack.components.js",
+		"build:file": "node build/bin/build-entry.js",
+		"build:examples":
+			"cross-env NODE_ENV=example webpack --config build/webpack.examples.js",
+		"dist":
+			" npm run clean && npm run build:theme && npm run build:file && npm run build:utils && npm run build:components &&  npm run build:kzjr ",
+		"build:all": "npm run dist && npm run build:examples"
 	},
 	"author": "chenxuan",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kzjr-ui/kzjr-ui"
 	},
-	"keywords": [
-		"kzjr-ui",
-		"vuejs"
-	],
+	"keywords": ["kzjr-ui", "vuejs"],
+	"peerDependencies": {
+		"vue": "^2.5.2"
+	},
 	"devDependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-core": "^6.26.0",
-		"babel-loader": "^7.1.2",
-		"babel-preset-env": "^1.6.1",
-		"cross-env": "^3.0.0",
+		"babel-cli": "^6.14.0",
+		"babel-core": "^6.14.0",
+		"babel-loader": "^6.2.5",
+		"babel-plugin-add-module-exports": "^0.2.1",
+		"babel-plugin-module-resolver": "^2.2.0",
+		"babel-preset-es2015": "^6.14.0",
 		"cp-cli": "^1.0.2",
+		"cross-env": "^3.0.0",
 		"css-loader": "^0.25.0",
-		"url-loader": "^0.6.2",
-		"file-loader": "^1.1.6",
 		"deep-assign": "^2.0.0",
 		"extract-text-webpack-plugin": "^3.0.0",
-		"node-sass": "^4.5.2",
-		"sass-loader": "^6.0.6",
+		"file-loader": "^1.1.6",
 		"gh-pages": "^0.11.0",
+		"json-loader": "^0.5.7",
+		"json-templater": "^1.0.4",
 		"gulp": "^3.9.1",
 		"gulp-autoprefixer": "^4.0.0",
 		"gulp-cssmin": "^0.1.7",
 		"gulp-postcss": "^6.1.1",
 		"gulp-sass": "^3.1.0",
+		"node-sass": "^4.5.2",
+		"sass-loader": "^6.0.6",
+		"url-loader": "^0.6.2",
+		"uppercamelcase": "^1.1.0",
 		"vue": "^2.5.13",
 		"vue-loader": "^11.3.3",
 		"vue-router": "^3.0.1",
@@ -46,7 +62,8 @@
 		"vue-template-compiler": "^2.5.13",
 		"webpack": "^3.5.6",
 		"webpack-bundle-analyzer": "^2.2.1",
-		"webpack-dev-server": "^2.9.7"
+		"webpack-dev-server": "^2.9.7",
+		"webpack-node-externals": "^1.6.0"
 	},
 	"license": "ISC"
 }

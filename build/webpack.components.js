@@ -6,9 +6,9 @@ const base = require('./webpack.base.js')
 const externals = require('./externals')
 
 const config = merge(base, {
-	entry: './src/index',
+	entry: options.paths.src.main,
 	output: {
-		filename: 'kzjr_ui.min.js',
+		filename: '[name].js',
 		path: options.paths.output.main,
 		library: '[name]',
 		libraryTarget: 'umd',
@@ -18,20 +18,11 @@ const config = merge(base, {
 	plugins: []
 })
 
+// debug and production
 config.plugins = config.plugins.concat([
 	new webpack.DefinePlugin({
 		VERSION: JSON.stringify(options.version)
 	})
 ])
 
-config.plugins = config.plugins.concat([
-	new webpack.optimize.UglifyJsPlugin({
-		sourceMap: false,
-		compress: {
-			warnings: false,
-			drop_debugger: true,
-			drop_console: true
-		}
-	})
-])
 module.exports = config

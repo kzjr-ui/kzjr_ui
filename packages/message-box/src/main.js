@@ -27,7 +27,7 @@ const defaults = {
 	customClass: '',
 	beforeClose: null,
 	dangerouslyUseHTMLString: false,
-	center: false,
+	center: true,
 	roundButton: false
 }
 

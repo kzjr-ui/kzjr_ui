@@ -7,7 +7,7 @@
 
 <script>
 
-	import pagination from "../../src/components/pagination";
+	import pagination from "kzjr_ui/packages/pagination";
 	
 	export default {
 		data () {

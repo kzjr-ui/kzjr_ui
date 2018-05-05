@@ -54,7 +54,7 @@
             :class="[ cancelButtonClasses ]"
             v-if="showCancelButton"
             :round="roundButton"
-            size="small"
+            size="medium"
             @click.native="handleAction('cancel')"
             @keydown.enter="handleAction('cancel')">
             {{ cancelButtonText || '取消' }}
@@ -65,7 +65,7 @@
             :class="[ confirmButtonClasses ]"
             v-show="showConfirmButton"
             :round="roundButton"
-            size="small"
+            size="medium"
             @click.native="handleAction('confirm')"
             @keydown.enter="handleAction('confirm')">
             {{ confirmButtonText || '确定'}}
@@ -78,8 +78,8 @@
 
 <script type="text/babel">
   import Popup from 'kzjr_ui/src/utils/popup';
-  import ElInput from 'kzjr_ui/src/components/input';
-  import ElButton from 'kzjr_ui/src/components/button';
+  import ElInput from 'kzjr_ui/packages/input';
+  import ElButton from 'kzjr_ui/packages/button';
   import { addClass, removeClass } from 'kzjr_ui/src/utils/dom';
   import Dialog from 'kzjr_ui/src/utils/aria-dialog';
   console.log(ElInput.name)
@@ -113,7 +113,7 @@
         default: true
       },
       center: {
-        default: false,
+        default: true,
         type: Boolean
       },
       roundButton: {

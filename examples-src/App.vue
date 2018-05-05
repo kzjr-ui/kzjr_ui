@@ -17,7 +17,11 @@
 			<h5 class="title">分页</h5>
 			<pagination></pagination>
 			<!-- 提示框 -->
-			<div @click="openAlert">alert</div>
+			<h5 class="title">提示框</h5>
+			<message-box></message-box>
+			<!-- loading -->
+			<h5 class="title">loading</h5>
+			<loading></loading>
 		</div>
 	</div>
 </template>
@@ -25,7 +29,9 @@
 <script>
 
 	import pagination from "./base/pagination";
-	import messageBox from "../src/components/message-box";
+	import messageBox from "./base/messageBox";
+	import loading from "./base/loading";
+	
 	
 	export default {
 		name: 'app',
@@ -35,12 +41,11 @@
 		},
 		computed: {},
 		components: {
-			pagination
+			pagination,
+			messageBox,
+			loading
 		},
 		methods: {
-			openAlert() {
-				messageBox.alert('这是一段内容', '标题名称')
-			}
 		},
 		created () {
 
@@ -49,9 +54,12 @@
 </script>
 
 <style lang="scss">
-	@import '../style/src/message-box.scss';
 	#app {
 		padding-bottom: 100px;
+		.container {
+			width: 1200px;
+			margin: 10px auto;
+		}
 		.content {
 			margin-top: 80px;
 			.title {

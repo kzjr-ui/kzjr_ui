@@ -42,9 +42,9 @@
 		.current {
 			&,
 			&:hover {
-				border-color: $--color-active;
+				border-color: $--color-primary;
                 color: $--color-white;               
-				background-color: $--color-active;
+				background-color: $--color-primary;
 				z-index: 3;
 			}
 		}

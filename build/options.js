@@ -17,14 +17,14 @@ function getEntry(globPath) {
 	return out
 }
 
-let entrirs = getEntry('src/components/**/index.js')
+const Components = require('../components.json')
 module.exports = {
 	version,
 	isProduction: process.env.NODE_ENV === 'production',
 	paths: {
 		root: path.join(__dirname, '..'),
 		src: {
-			main: entrirs,
+			main: Components,
 			examples: path.join(__dirname, '..', 'examples-src')
 		},
 		output: {

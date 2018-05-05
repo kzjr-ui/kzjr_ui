@@ -1,14 +1,27 @@
 {
 	"presets": [
 		[
-            "env",       
+			"es2015",
 			{
-				"targets": {
-					"browsers": ["last 2 versions", "safari 7", "not ie <= 9"]
-				},
-				"modules": false,
 				"loose": true
 			}
 		]
-	]
+	],
+	"env": {
+		"utils": {
+			"plugins": [
+				[
+					"module-resolver",
+					{
+						"root": [
+							"kzjr_ui"
+						],
+						"alias": {
+							"kzjr_ui/src": "kzjr_ui/lib"
+						}
+					}
+				]
+			]
+		}
+	}
 }
