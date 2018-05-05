@@ -1,42 +1,42 @@
 # vue-canvas-effect
-> A simple, canvas effect collection for Vue.js
+> 一个简单的canvas动画合集Vue组件
 
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/vue-canvas-effect) ![](https://img.shields.io/npm/v/vue-canvas-effect.svg)
-                                                                      
+
 <p align="center">
   <br>
   <br>
-  <img width="600" src="./document/canvas-logo.svg" alt="logo of vue-canvas-effect repository">
+  <img width="600" src="document/canvas-logo.svg" alt="logo of vue-canvas-effect repository">
   <br>
 </p>
                                             
 <p align="center">
     🌾 <a href="https://chenxuan0000.github.io/vue-canvas-effect/index.html">online demo</a> |
-   📘 <a href="./document/README.md">中文文档</a> 
+   📘 <a href="../README.md">English document</a> 
 </p>
-                                   
-## Contents
+                       
+## 内容
 
-- [**`Browser support`**](#browser-support)
-- [**`Installation`**](#installation)
-- [**`Usage`**](#usage)
-    - [**`ES6`**](#es6)
-        - [**`On demand`**](#on-demand)
-        - [**`Fully import`**](#fully-import)
-    - [**`normal use`**](#normal-use)
-- [**`Component List`**](#component-list)
+- [**`浏览器兼容`**](#浏览器兼容)
+- [**`安装`**](#安装)
+- [**`使用`**](#使用)
+    - [**`ES6`**](#ES6)
+        - [**`按需加载`**](#按需加载)
+        - [**`全部引入`**](#全部引入)
+    - [**`普通模式`**](#普通模式)
+- [**`组件列表`**](#组件列表)
     - [**`neon`**](#neon)
     - [**`bubbles`**](#bubbles)
-- [**`Changelog`**](#changelog)
-- [**`Contribution`**](#contribution)
-- [**`TKS`**](#tks)
+- [**`修改日志`**](#修改日志)
+- [**`贡献`**](#贡献)
+- [**`TKS`**](#tks)                        
 
-## Browser support
+## 浏览器兼容
 | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png" alt="IE" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>IE | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari-ios.png" alt="iOS Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>iOS | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome-android.png" alt="Chrome for Android" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Android |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | IE9+ | &check;| &check; | &check; | &check; | &check; | &check;
 
-## Installation
+## 安装
 
 ### NPM
 
@@ -44,18 +44,18 @@
 npm install vue-canvas-effect --save
 ```
 
-## Usage
+## 使用
 ### ES6
 
-#### On demand
-> Recommend ways
-> First, install babel-plugin-import
+#### 按需加载
+> 推荐
+> 首先安装babel-plugin-import依赖
 
 ```javascript
 npm install babel-plugin-import --save-dev
 ```
 
-> Then edit .babelrc
+> 然后修改 .babelrc文件
 
 ```javascript
 // .babelrc
@@ -66,7 +66,7 @@ npm install babel-plugin-import --save-dev
   }]]
 }
 ```
-> Next, if you need neon, edit main.js
+> 然后，如果你需要neon组件，编辑main.js
 
 ```javascript
 import Vue from 'vue'
@@ -80,8 +80,8 @@ new Vue({
 })
 ```
 
-#### Fully import
-> no recommend ways
+#### 全部引入
+> 不推荐
 
 ```javascript
 import Vue from 'vue'
@@ -93,9 +93,8 @@ new Vue({
 })
 ```
 
-### normal use
-> script tag
-
+### 普通模式
+> script 标签
 ```html
 <html>
 <head>
@@ -116,27 +115,27 @@ new Vue({
 </html>
 ```
 
-## Component List
+## 组件列表
 ### neon
 - [neon-demo](https://chenxuan0000.github.io/vue-canvas-effect/index.html#/router_1)
 > name: neonEffect
 ```html
-// default tagName use
+// 默认标签名
 <neon-effect :options="options"></neon-effect>
 ```
 ```javascript
 //default options
         {
-          len: 20, //The unilateral length of the pentagon
-          count: 50, //How many lines overlap
-          rate: 20, //rate the smaller fast
-          dieChance: 0.05, //The chance to redraw a single painting failure.
-          sparkChance: 0.1, //[0,1] The larger the figure, the larger the pentagon.
-          sparkDist: 10, //Flash point distance.
-          sparkSize: 2,//Flash point size.
-          contentLight: 60, // [0,100] Brightness of color block
-          shadowToTimePropMult: 6, //The shadow size of the inner ring of the pentagon.
-          bgColorArr: [0, 0, 0] //Background color array
+          len: 20, //五边形的单边长度
+          count: 50, //多少线重叠
+          rate: 20, //速度 越小越快
+          dieChance: 0.05, //单次绘画失败进行重绘的几率
+          sparkChance: 0.1, //[0,1] 越大画出的五边形越多重
+          sparkDist: 10, //闪烁点的距离
+          sparkSize: 2,//闪烁点的大小
+          contentLight: 60, // [0,100] 色块的亮度
+          shadowToTimePropMult: 6, //五边形的内环阴影大小
+          bgColorArr: [0, 0, 0] //背景色数组
         }
 ```
 
@@ -144,26 +143,27 @@ new Vue({
 - [bubbles-demo](https://chenxuan0000.github.io/vue-canvas-effect/index.html#/router_2)
 > name: bubblesEffect
 ```html
-// default tagName use
+// 默认标签名
 <bubbles-effect :options="options"></bubbles-effect>
 ```
 ```javascript
 //default options
         {
-          color: 'rgba(225,225,225,0.5)', //Bubble color
-          radius: 15, //Bubble radius
-          densety: 0.3, // The larger the bubble density, the greater the density (suggest no more than 1).
-          clearOffset: 0.2 // The larger the bubble disappears [0-1], the longer it disappears.
+          color: 'rgba(225,225,225,0.5)', //气泡颜色
+          radius: 15, //气泡半径
+          densety: 0.3, // 气泡密度 越大越密集(建议不要大于1)
+          clearOffset: 0.2 // 气泡消失距离[0-1] 越大越晚消失
         }
 ```
 
-## Changelog
-See the GitHub [release history](https://github.com/chenxuan0000/vue-canvas-effect/releases).
 
-## Contribution
-Welcome to give some Suggestions and optimizations, and look forward to your `Pull Request`.
+## 修改日志
+See the GitHub [查看历史版本](https://github.com/chenxuan0000/vue-canvas-effect/releases).
 
-## TkS
+## 贡献
+欢迎给出一些意见和优化，期待你的 `Pull Request`。
+
+## TKS
 [circleMagic](https://github.com/FreAK19/circleMagic.js)
 
 ## License
