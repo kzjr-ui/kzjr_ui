@@ -82,6 +82,7 @@ $--fill-base: $--color-white !default;
 -------------------------- */
 $--font-path: 'fonts' !default;
 $--font-size-base: 14px !default;
+$--font-size-16: 16px !default;
 $--font-size-small: 13px !default;
 $--font-size-large: 18px !default;
 $--font-color-disabled-base: #bbb !default;
@@ -261,8 +262,8 @@ $--alert-icon-large-size: 28px !default;
 -------------------------- */
 $--msgbox-width: 400px !default;
 $--msgbox-border-radius: 4px !default;
-$--msgbox-font-size: $--font-size-large !default;
-$--msgbox-content-font-size: $--font-size-base !default;
+$--msgbox-font-size: $--font-size-16 !default;
+$--msgbox-content-font-size: $--font-size-16 !default;
 $--msgbox-content-color: $--color-text-regular !default;
 $--msgbox-error-font-size: 12px !default;
 $--msgbox-padding-primary: 15px !default;
