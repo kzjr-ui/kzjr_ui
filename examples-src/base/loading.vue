@@ -6,7 +6,7 @@
 </template>
 
 <script>
-	import Loading from "kzjr_ui/packages/loading";
+	import Loading from "kzjr_ui/packages/ajax-loading";
 	import ElButton from "kzjr_ui/packages/button";
 	
 	export default {
@@ -33,5 +33,5 @@
 </script>
 
 <style lang="scss">
-	@import "../../style/src/loading.scss";
+	@import "../../style/src/ajax-loading.scss";
 </style>

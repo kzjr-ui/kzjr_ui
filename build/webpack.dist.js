@@ -34,4 +34,8 @@ config.plugins = config.plugins.concat([
 		}
 	})
 ])
+config.module.rules.push({
+	test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+	loader: 'url-loader?limit=8192'
+})
 module.exports = config

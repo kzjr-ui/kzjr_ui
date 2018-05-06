@@ -1,36 +1,20 @@
 <template>
   <transition name="msgbox-fade">
-    <div
-      class="kzjr-message-box__wrapper"
-      tabindex="-1"
-      v-show="visible"
-      @click.self="handleWrapperClick"
-      role="dialog"
-      aria-modal="true"
-      :aria-label="title || 'dialog'">
+    <div class="kzjr-message-box__wrapper" tabindex="-1" v-show="visible" @click.self="handleWrapperClick" role="dialog" aria-modal="true" :aria-label="title || 'dialog'">
       <div class="kzjr-message-box" :class="[customClass, center && 'kzjr-message-box--center']">
         <div class="kzjr-message-box__header" v-if="title !== null">
           <div class="kzjr-message-box__title">
-            <div
-              :class="['kzjr-message-box__status', typeClass]"
-              v-if="typeClass && center">
+            <div :class="['kzjr-message-box__status', typeClass]" v-if="typeClass && center">
             </div>
             <span>{{ title }}</span>
           </div>
-          <button
-            type="button"
-            class="kzjr-message-box__headerbtn"
-            aria-label="Close"
-            v-if="showClose"
-            @click="handleAction('cancel')"
-            @keydown.enter="handleAction('cancel')">
-            <i class="kzjr-message-box__close kzjr-icon-close"></i>
-          </button>
+          <div class="kzjr-message-box__headerbtn" aria-label="Close" v-if="showClose" @click="handleAction('cancel')" @keydown.enter="handleAction('cancel')">
+            <img src="../img/new_close2.png" alt="" class="border">
+            <img src="../img/new_close1.png" alt="" class="close">            
+          </div>
         </div>
         <div class="kzjr-message-box__content">
-          <div
-            :class="['kzjr-message-box__status', typeClass]"
-            v-if="typeClass && !center && message !== ''">
+          <div :class="['kzjr-message-box__status', typeClass]" v-if="typeClass && !center && message !== ''">
           </div>
           <div class="kzjr-message-box__message" v-if="message !== ''">
             <slot>
@@ -39,35 +23,15 @@
             </slot>
           </div>
           <div class="kzjr-message-box__input" v-show="showInput">
-            <el-input
-              v-model="inputValue"
-              :type="inputType"
-              @keydown.enter.native="handleInputEnter"
-              :placeholder="inputPlaceholder"
-              ref="input"></el-input>
+            <el-input v-model="inputValue" :type="inputType" @keydown.enter.native="handleInputEnter" :placeholder="inputPlaceholder" ref="input"></el-input>
             <div class="kzjr-message-box__errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
           </div>
         </div>
         <div class="kzjr-message-box__btns">
-          <el-button
-            :loading="cancelButtonLoading"
-            :class="[ cancelButtonClasses ]"
-            v-if="showCancelButton"
-            :round="roundButton"
-            size="medium"
-            @click.native="handleAction('cancel')"
-            @keydown.enter="handleAction('cancel')">
+          <el-button :loading="cancelButtonLoading" :class="[ cancelButtonClasses ]" v-if="showCancelButton" :round="roundButton" size="medium" @click.native="handleAction('cancel')" @keydown.enter="handleAction('cancel')">
             {{ cancelButtonText || '取消' }}
           </el-button>
-          <el-button
-            :loading="confirmButtonLoading"
-            ref="confirm"
-            :class="[ confirmButtonClasses ]"
-            v-show="showConfirmButton"
-            :round="roundButton"
-            size="medium"
-            @click.native="handleAction('confirm')"
-            @keydown.enter="handleAction('confirm')">
+          <el-button :loading="confirmButtonLoading" ref="confirm" :class="[ confirmButtonClasses ]" v-show="showConfirmButton" :round="roundButton" size="medium" @click.native="handleAction('confirm')" @keydown.enter="handleAction('confirm')">
             {{ confirmButtonText || '确定'}}
           </el-button>
         </div>
@@ -82,7 +46,6 @@
   import ElButton from 'kzjr_ui/packages/button';
   import { addClass, removeClass } from 'kzjr_ui/src/utils/dom';
   import Dialog from 'kzjr_ui/src/utils/aria-dialog';
-  console.log(ElInput.name)
   let messageBox;
   let typeMap = {
     success: 'success',
@@ -126,18 +89,18 @@
       ElButton
     },
     computed: {
-      typeClass() {
-        return this.type && typeMap[this.type] ? `kzjr-icon-${ typeMap[this.type] }` : '';
+      typeClass () {
+        return this.type && typeMap[this.type] ? `kzjr-icon-${typeMap[this.type]}` : '';
       },
-      confirmButtonClasses() {
-        return `kzjr-button--primary ${ this.confirmButtonClass }`;
+      confirmButtonClasses () {
+        return `kzjr-button--primary ${this.confirmButtonClass}`;
       },
-      cancelButtonClasses() {
-        return `${ this.cancelButtonClass }`;
+      cancelButtonClasses () {
+        return `${this.cancelButtonClass}`;
       }
     },
     methods: {
-      getSafeClose() {
+      getSafeClose () {
         const currentId = this.uid;
         return () => {
           this.$nextTick(() => {
@@ -145,7 +108,7 @@
           });
         };
       },
-      doClose() {
+      doClose () {
         if (!this.visible) return;
         this.visible = false;
         this._closing = true;
@@ -169,17 +132,17 @@
           if (this.action) this.callback(this.action, this);
         });
       },
-      handleWrapperClick() {
+      handleWrapperClick () {
         if (this.closeOnClickModal) {
           this.handleAction('cancel');
         }
       },
-      handleInputEnter() {
+      handleInputEnter () {
         if (this.inputType !== 'textarea') {
           return this.handleAction('confirm');
         }
       },
-      handleAction(action) {
+      handleAction (action) {
         if (this.$type === 'prompt' && action === 'confirm' && !this.validate()) {
           return;
         }
@@ -191,7 +154,7 @@
           this.doClose();
         }
       },
-      validate() {
+      validate () {
         if (this.$type === 'prompt') {
           const inputPattern = this.inputPattern;
           if (inputPattern && !inputPattern.test(this.inputValue || '')) {
@@ -218,12 +181,12 @@
         removeClass(this.getInputElement(), 'invalid');
         return true;
       },
-      getFistFocus() {
+      getFistFocus () {
         const $btns = this.$el.querySelector('.kzjr-message-box__btns .kzjr-button');
         const $title = this.$el.querySelector('.kzjr-message-box__btns .kzjr-message-box__title');
         return $btns && $btns[0] || $title;
       },
-      getInputElement() {
+      getInputElement () {
         const inputRefs = this.$refs.input.$refs;
         return inputRefs.input || inputRefs.textarea;
       }
@@ -231,7 +194,7 @@
     watch: {
       inputValue: {
         immediate: true,
-        handler(val) {
+        handler (val) {
           this.$nextTick(_ => {
             if (this.$type === 'prompt' && val !== null) {
               this.validate();
@@ -239,7 +202,7 @@
           });
         }
       },
-      visible(val) {
+      visible (val) {
         if (val) {
           this.uid++;
           if (this.$type === 'alert' || this.$type === 'confirm') {
@@ -264,12 +227,12 @@
         }
       }
     },
-    mounted() {
+    mounted () {
       if (this.closeOnHashChange) {
         window.addEventListener('hashchange', this.close);
       }
     },
-    beforeDestroy() {
+    beforeDestroy () {
       if (this.closeOnHashChange) {
         window.removeEventListener('hashchange', this.close);
       }
@@ -277,7 +240,7 @@
         messageBox.closeDialog();
       });
     },
-    data() {
+    data () {
       return {
         uid: 1,
         title: undefined,

@@ -2,7 +2,7 @@
 
 import Button from '../packages/button/index.js';
 import Input from '../packages/input/index.js';
-import Loading from '../packages/loading/index.js';
+import AjaxLoading from '../packages/ajax-loading/index.js';
 import MessageBox from '../packages/message-box/index.js';
 import Pagination from '../packages/pagination/index.js';
 import CollapseTransition from 'kzjr_ui/src/transitions/collapse-transition';
@@ -10,6 +10,7 @@ import CollapseTransition from 'kzjr_ui/src/transitions/collapse-transition';
 const components = [
   Button,
   Input,
+  AjaxLoading,
   Pagination,
   CollapseTransition
 ];
@@ -42,12 +43,13 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 module.exports = {
-  version: '0.0.4',
+  version: '0.0.5',
   install,
   CollapseTransition,
   Loading,
   Button,
   Input,
+  AjaxLoading,
   MessageBox,
   Pagination
 };

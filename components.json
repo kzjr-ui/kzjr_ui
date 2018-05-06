@@ -1,7 +1,7 @@
 {
 	"button": "./packages/button/index.js",
 	"input": "./packages/input/index.js",
-	"loading": "./packages/loading/index.js",
+	"ajax-loading": "./packages/ajax-loading/index.js",
 	"message-box": "./packages/message-box/index.js",
 	"pagination": "./packages/pagination/index.js"
 }

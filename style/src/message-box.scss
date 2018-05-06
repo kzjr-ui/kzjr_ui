@@ -50,23 +50,25 @@
 
 	@include e(headerbtn) {
 		position: absolute;
-		top: $--msgbox-padding-primary;
-		right: $--msgbox-padding-primary;
-		padding: 0;
-		border: none;
-		outline: none;
-		background: transparent;
-		font-size: $--message-close-size;
 		cursor: pointer;
-
-		.kzjr-message-box__close {
-			color: $--color-info;
+		width: 26px;
+		height: 26px;
+		top: 6px;
+		right: 9px;
+		img.close {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 9;
 		}
-
-		&:focus,
-		&:hover {
-			.kzjr-message-box__close {
-				color: $--color-primary;
+		img.border {
+			position: absolute;
+			z-index: 99;
+			width: 26px;
+			height: 26px;
+			&:hover {
+				transform: rotate(360deg);
+				transition: all 0.4s;
 			}
 		}
 	}

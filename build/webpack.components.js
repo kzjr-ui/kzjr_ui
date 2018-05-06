@@ -24,5 +24,9 @@ config.plugins = config.plugins.concat([
 		VERSION: JSON.stringify(options.version)
 	})
 ])
+config.module.rules.push({
+	test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+	loader: 'url-loader?limit=8192'
+})
 
 module.exports = config
