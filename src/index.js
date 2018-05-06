@@ -6,6 +6,9 @@ import Modal from '../packages/modal/index.js';
 import AjaxLoading from '../packages/ajax-loading/index.js';
 import MessageBox from '../packages/message-box/index.js';
 import Pagination from '../packages/pagination/index.js';
+import Radio from '../packages/radio/index.js';
+import RadioButton from '../packages/radio-button/index.js';
+import RadioGroup from '../packages/radio-group/index.js';
 import CollapseTransition from 'kzjr_ui/src/transitions/collapse-transition';
 
 const components = [
@@ -14,6 +17,9 @@ const components = [
   Modal,
   AjaxLoading,
   Pagination,
+  Radio,
+  RadioButton,
+  RadioGroup,
   CollapseTransition
 ];
 
@@ -45,7 +51,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 module.exports = {
-  version: '0.0.7',
+  version: '0.0.8',
   install,
   CollapseTransition,
   Loading,
@@ -54,7 +60,10 @@ module.exports = {
   Modal,
   AjaxLoading,
   MessageBox,
-  Pagination
+  Pagination,
+  Radio,
+  RadioButton,
+  RadioGroup
 };
 
 module.exports.default = module.exports;

@@ -25,6 +25,9 @@
 			<!-- modal -->
 			<h5 class="title">modal</h5>
 			<kzjr-modal></kzjr-modal>
+			<!-- radio -->
+			<h5 class="title">radio</h5>			
+			<kzjr-radio></kzjr-radio>
 		</div>
 	</div>
 </template>
@@ -35,6 +38,9 @@
 	import messageBox from "./base/messageBox";
 	import loading from "./base/loading";
 	import KzjrModal from "./base/modal.vue";	
+	import KzjrSwitch from "./base/switch.vue";	
+	import KzjrRadio from "./base/radio.vue";	
+	
 	
 	export default {
 		name: 'app',
@@ -47,7 +53,9 @@
 			pagination,
 			messageBox,
 			loading,
-			KzjrModal
+			KzjrModal,
+			KzjrSwitch,
+			KzjrRadio
 		},
 		methods: {
 		},

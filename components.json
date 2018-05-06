@@ -4,5 +4,8 @@
 	"modal": "./packages/modal/index.js",
 	"ajax-loading": "./packages/ajax-loading/index.js",
 	"message-box": "./packages/message-box/index.js",
-	"pagination": "./packages/pagination/index.js"
+	"pagination": "./packages/pagination/index.js",
+	"radio": "./packages/radio/index.js",
+	"radio-button": "./packages/radio-button/index.js",
+	"radio-group": "./packages/radio-group/index.js"
 }
