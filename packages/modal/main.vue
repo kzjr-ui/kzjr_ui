@@ -1,43 +1,47 @@
 <template>
-	<transition name="fade">
+	<transition name="msgbox-fade">
 		<div class="kzjr-modal-component" v-show="visible">
-			<transition name="msgbox-fade">
-				<div class="core" v-show="showCore" :class="sizeClass">
-					<div class="head">
-						<div class="left">
-							<slot name="left"></slot>
-						</div>
-						<div class="middle">{{title}}</div>
-						<div class="right">
-							<span class="close" @click="shutClick">
-								<img src="../../img/new_close2.png" alt="" class="border">
-								<img src="../../img/new_close1.png" alt="" class="close">
-							</span>
-						</div>
+			<div class="core" :class="sizeClass">
+				<div class="head">
+					<div class="left">
+						<slot name="left"></slot>
 					</div>
-					<div class="main">
-						<slot></slot>
-					</div>
-					<div class="foot">
-						<el-button v-if="showCancelButton" size="medium" @click.native="shutClick" @keydown.enter="shutClick">
-							{{ cancelButtonText || '取消' }}
-						</el-button>
-						<el-button class="kzjr-button--primary" v-show="showConfirmButton" size="medium" @click.native="sureClick" @keydown.enter="sureClick">
-							{{ confirmButtonText || '确定'}}
-						</el-button>
+					<div class="middle">{{title}}</div>
+					<div class="right">
+						<span class="close" @click="shutClick">
+							<img src="../../img/new_close2.png" alt="" class="border">
+							<img src="../../img/new_close1.png" alt="" class="close">
+						</span>
 					</div>
 				</div>
-			</transition>
+				<div class="main">
+					<slot></slot>
+				</div>
+				<div class="foot">
+					<el-button v-if="showCancelButton" size="medium" @click.native="shutClick" @keydown.enter="shutClick">
+						{{ cancelButtonText || '取消' }}
+					</el-button>
+					<el-button class="kzjr-button--primary" v-show="showConfirmButton" size="medium" @click.native="sureClick" @keydown.enter="sureClick">
+						{{ confirmButtonText || '确定'}}
+					</el-button>
+				</div>
+			</div>
 		</div>
 	</transition>
 </template>
 
 <script>
 	import ElButton from 'kzjr_ui/packages/button';
+	import Popup from 'kzjr_ui/src/utils/popup';
+
 
 	export default {
+		mixins: [Popup],
 		name: 'KzjrModal',
 		props: {
+			modal: {
+				default: true
+			},
 			visible: {
 				type: Boolean,
 				default: false

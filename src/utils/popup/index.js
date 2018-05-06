@@ -188,6 +188,7 @@ export default {
 					PopupManager.closeModal(this._popupId)
 					this._closing = false
 				}
+
 				PopupManager.openModal(
 					this._popupId,
 					PopupManager.nextZIndex(),

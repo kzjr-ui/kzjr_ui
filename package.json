@@ -1,6 +1,6 @@
 {
 	"name": "kzjr_ui",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "kzjr_ui for Vue.js",
 	"main": "dist/kzjr_ui.min.js",
 	"scripts": {
