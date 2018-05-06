@@ -2,6 +2,7 @@
 
 import Button from '../packages/button/index.js';
 import Input from '../packages/input/index.js';
+import Modal from '../packages/modal/index.js';
 import AjaxLoading from '../packages/ajax-loading/index.js';
 import MessageBox from '../packages/message-box/index.js';
 import Pagination from '../packages/pagination/index.js';
@@ -10,6 +11,7 @@ import CollapseTransition from 'kzjr_ui/src/transitions/collapse-transition';
 const components = [
   Button,
   Input,
+  Modal,
   AjaxLoading,
   Pagination,
   CollapseTransition
@@ -43,12 +45,13 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 module.exports = {
-  version: '0.0.5',
+  version: '0.0.6',
   install,
   CollapseTransition,
   Loading,
   Button,
   Input,
+  Modal,
   AjaxLoading,
   MessageBox,
   Pagination

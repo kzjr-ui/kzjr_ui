@@ -22,6 +22,9 @@
 			<!-- loading -->
 			<h5 class="title">loading</h5>
 			<loading></loading>
+			<!-- modal -->
+			<h5 class="title">modal</h5>
+			<kzjr-modal></kzjr-modal>
 		</div>
 	</div>
 </template>
@@ -31,7 +34,7 @@
 	import pagination from "./base/pagination";
 	import messageBox from "./base/messageBox";
 	import loading from "./base/loading";
-	
+	import KzjrModal from "./base/modal.vue";	
 	
 	export default {
 		name: 'app',
@@ -43,7 +46,8 @@
 		components: {
 			pagination,
 			messageBox,
-			loading
+			loading,
+			KzjrModal
 		},
 		methods: {
 		},

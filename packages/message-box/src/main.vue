@@ -9,8 +9,8 @@
             <span>{{ title }}</span>
           </div>
           <div class="kzjr-message-box__headerbtn" aria-label="Close" v-if="showClose" @click="handleAction('cancel')" @keydown.enter="handleAction('cancel')">
-            <img src="../img/new_close2.png" alt="" class="border">
-            <img src="../img/new_close1.png" alt="" class="close">            
+            <img src="../../../img/new_close2.png" alt="" class="border">
+            <img src="../../../img/new_close1.png" alt="" class="close">            
           </div>
         </div>
         <div class="kzjr-message-box__content">

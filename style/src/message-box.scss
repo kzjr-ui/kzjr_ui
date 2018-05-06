@@ -37,7 +37,7 @@
 
 	@include e(header) {
 		position: relative;
-		padding: 2px 28px;
+		padding: 6px 28px;
 	}
 
 	@include e(title) {
@@ -53,9 +53,11 @@
 		cursor: pointer;
 		width: 26px;
 		height: 26px;
-		top: 6px;
+		top: 10px;
 		right: 9px;
 		img.close {
+			width: 26px;
+			height: 26px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -63,7 +65,9 @@
 		}
 		img.border {
 			position: absolute;
-			z-index: 99;
+			z-index: 10;
+			top: 0;
+			left: 0;
 			width: 26px;
 			height: 26px;
 			&:hover {
