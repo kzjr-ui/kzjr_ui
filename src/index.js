@@ -51,7 +51,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 module.exports = {
-  version: '0.0.8',
+  version: '0.0.9',
   install,
   CollapseTransition,
   Loading,

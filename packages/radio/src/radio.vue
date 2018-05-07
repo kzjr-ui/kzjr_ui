@@ -14,7 +14,7 @@
     :tabindex="tabIndex"
     @keydown.space.stop.prevent="model = label"
   >
-    <span class="kzjr-radio__input"
+    <span class="kzjr-radio__input" v-show="showRadio"
       :class="{
         'is-disabled': isDisabled,
         'is-checked': model === label
@@ -67,7 +67,11 @@
       disabled: Boolean,
       name: String,
       border: Boolean,
-      size: String
+      size: String,
+      showRadio: {
+        type: Boolean,
+        default: true
+      }
     },
 
     data() {

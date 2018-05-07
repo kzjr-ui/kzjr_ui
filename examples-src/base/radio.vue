@@ -1,8 +1,8 @@
 
 <template>
 	<div class="container">
-		<kzjr-radio v-model="radio" label="1" border>备选项</kzjr-radio>
-		<kzjr-radio v-model="radio" label="2" border>备选项</kzjr-radio>
+		<kzjr-radio :showRadio="false" v-model="radio" label="1" border>备选项</kzjr-radio>
+		<kzjr-radio :showRadio="false" v-model="radio" label="2" border>备选项</kzjr-radio>
 	</div>
 </template>
 

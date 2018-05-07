@@ -33,7 +33,8 @@ const config = merge(base, {
     contentBase: options.paths.output.examples,
     host: 'localhost',
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    port: 8088
   }
 })
 
