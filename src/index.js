@@ -5,6 +5,7 @@ import Input from '../packages/input/index.js';
 import Modal from '../packages/modal/index.js';
 import AjaxLoading from '../packages/ajax-loading/index.js';
 import MessageBox from '../packages/message-box/index.js';
+import Switch from '../packages/switch/index.js';
 import Pagination from '../packages/pagination/index.js';
 import Radio from '../packages/radio/index.js';
 import RadioButton from '../packages/radio-button/index.js';
@@ -16,6 +17,7 @@ const components = [
   Input,
   Modal,
   AjaxLoading,
+  Switch,
   Pagination,
   Radio,
   RadioButton,
@@ -51,7 +53,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 module.exports = {
-  version: '0.0.9',
+  version: '0.0.11',
   install,
   CollapseTransition,
   Loading,
@@ -60,6 +62,7 @@ module.exports = {
   Modal,
   AjaxLoading,
   MessageBox,
+  Switch,
   Pagination,
   Radio,
   RadioButton,
